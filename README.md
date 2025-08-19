@@ -20,14 +20,15 @@ Safely removes the Nessus Agent from macOS:
 - Forgets related package receipts.
 - Cleans up installer folders.
 
----
+## Logging
+Both scripts log their actions to:
+- Install log: /var/log/nessus_install.log
+- Uninstall log: /var/log/nessus_uninstall.log
 
 ## Requirements
 - Admin/root privileges.
 - Outbound network access to your Nessus Manager or Tenable.io.
 - License key and configuration details for linking.
-
----
 
 ## Jamf Pro Deployment
 
@@ -44,8 +45,6 @@ Safely removes the Nessus Agent from macOS:
 2. Add the script to a **Policy** targeting your desired Macs.
 3. Pass your License Key, Group, Host, and Port via Script Parameters 4–7.
 4. (Optional) Add to **Self Service** with a friendly name like “Install Nessus Agent”.
-
----
 
 ### Uninstall Script – Jamf Usage
 The uninstall script requires no parameters.

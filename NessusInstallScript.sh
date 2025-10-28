@@ -30,8 +30,9 @@ NESSUS_PKG_DEFAULT="Install Nessus Agent.pkg"
 # Jamf Parameters
 LINK_KEY="$4"
 GROUPS="$5"
-HOST="$6"
-PORT="$7"
+# If you want to use the host and port uncomment line 34 & 35 and scroll down to line 150 and use that line and remove line 151
+#HOST="$6"
+#PORT="$7"
 
 # Toggle to pass -allowUntrusted to installer (1 = on)
 ALLOW_UNTRUSTED="${ALLOW_UNTRUSTED:-1}"
@@ -145,8 +146,9 @@ link_agent() {
 
   log "Linking Nessus Agent to management server..."
 
-  # In order for agents to link appropriately to the correct group the group optional command needs to be at the end of the agent link command
-  sudo "$NESSUS_AGENT_PATH" agent link --key="$LINK_KEY" --host="$HOST" --port="$PORT" --groups="$GROUPS" | sudo tee -a "$LOG_FILE"
+  # In order for agents to link appropriately to the correct group the group optional command needs to be at the end of the agent link command ... Line 151 is for cloud host utilizations. 
+  #sudo "$NESSUS_AGENT_PATH" agent link --key="$LINK_KEY" --host="$HOST" --port="$PORT" --groups="$GROUPS" | sudo tee -a "$LOG_FILE"
+  sudo "$NESSUS_AGENT_PATH" agent link --key="$LINK_KEY" --cloud --groups="$GROUPS" | sudo tee -a "$LOG_FILE"
   if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
     log "❌ Failed to link Nessus Agent."
     exit 1

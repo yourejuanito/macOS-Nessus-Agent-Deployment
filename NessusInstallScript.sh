@@ -2,6 +2,9 @@
 #
 # Created by Juan Garcia
 #
+# v2.0 
+# Adding lines and comments to highlight the options to utilize the nessuscli to link with -cloud vs highlight 
+#
 # v1.0
 # 
 # Nessus Agent: download DMG, install, link, clean up
